@@ -58,7 +58,7 @@ export async function certificateFor(domain: string, options: Options = {}) {
     await installCertificateAuthority(options);
   }
 
-  if (!exists(pathForDomain(domain, `certificate.crt`))) {
+  if (!exists(pathForDomain(domain, `certificate.crt`)) || process.env.REGEN_CERT) {
     debug(`Can't find certificate file for ${ domain }, so it must be the first request for ${ domain }. Generating and caching ...`);
     await generateDomainCertificate(domain);
   }

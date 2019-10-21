@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * #20: Update `command-exists` dependency
 * #23: Fix issues related to Firefox on Windows and redirecting
-* #24: Update generated certificate to last 7000 days instead of 30
+* #24: Update generated certificate to last 825 days instead of 30
 * 30: Fix false positive on `nss` check
 
 
