@@ -1,4 +1,4 @@
-import { readFileSync as readFile, readdirSync as readdir, existsSync as exists } from 'fs';
+import { readFileSync as readFile, readdirSync as readdir, existsSync as exists, unlinkSync as unlink } from 'fs';
 import createDebug from 'debug';
 import { sync as commandExists } from 'command-exists';
 import rimraf from 'rimraf';
@@ -52,6 +52,15 @@ export async function certificateFor(domain: string, options: Options = {}) {
 
   let domainKeyPath = pathForDomain(domain, `private-key.key`);
   let domainCertPath = pathForDomain(domain, `certificate.crt`);
+
+  if (process.env.REGEN_CERT) {
+    try {
+      unlink(rootCAKeyPath);
+    } catch (e){ }
+    try {
+      unlink(pathForDomain(domain, `certificate.crt`));
+    } catch (e){ }
+  }
 
   if (!exists(rootCAKeyPath)) {
     debug('Root CA is not installed yet, so it must be our first run. Installing root CA ...');
