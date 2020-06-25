@@ -31,6 +31,8 @@ export default class LinuxPlatform implements Platform {
   async addToTrustStores(certificatePath: string, options: Options = {}): Promise<void> {
 
     debug('Adding devcert root CA to Linux system-wide trust stores');
+    // Ensure the certificate path actually exists on system:
+    run(`sudo mkdir -p /usr/local/share/ca-certificates/`);
     // run(`sudo cp ${ certificatePath } /etc/ssl/certs/devcert.crt`);
     run(`sudo cp ${ certificatePath } /usr/local/share/ca-certificates/devcert.crt`);
     // run(`sudo bash -c "cat ${ certificatePath } >> /etc/ssl/certs/ca-certificates.crt"`);
