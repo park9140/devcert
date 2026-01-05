@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/davewasmer/devcert#readme",
   "devDependencies": {
-    "standard-version": "^4.3.0",
+    "standard-version": "^9.5.0",
     "typescript": "^2.7.0"
   },
   "dependencies": {
@@ -39,6 +39,7 @@
     "@types/node": "^8.5.7",
     "@types/rimraf": "^2.0.2",
     "@types/tmp": "^0.0.33",
+    "@vscode/sudo-prompt": "^9.3.1",
     "application-config-path": "^0.1.0",
     "command-exists": "^1.2.4",
     "configstore": "^3.0.0",
@@ -50,9 +51,7 @@
     "mkdirp": "^0.5.1",
     "password-prompt": "^1.0.4",
     "rimraf": "^2.6.2",
-    "sudo-prompt": "^8.2.0",
-    "tmp": "^0.0.33",
+    "tmp": "^0.2.5",
     "tslib": "^1.8.1"
-  },
-  "optionalDependencies": {}
+  }
 }

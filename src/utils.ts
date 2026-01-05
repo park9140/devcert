@@ -2,7 +2,7 @@ import { execSync, ExecSyncOptions } from 'child_process';
 import tmp from 'tmp';
 import createDebug from 'debug';
 import path from 'path';
-import sudoPrompt from 'sudo-prompt';
+import sudoPrompt from '@vscode/sudo-prompt';
 
 import {
   configPath,
